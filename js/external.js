@@ -68,106 +68,130 @@ You have rented some movies for your kids: The little mermaid (for 3 days), Brot
 
 /*
 Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays $400, Amazon $380, and Facebook $350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
+// */
+// let googlePay = 400;
+// let amazonPay = 380;
+// let facebookPay = 350;
+
+// alert("You will be getting paid $400 an hour for Google.");
+// let hoursWorkedGoogle = prompt(
+//   "How many hours did you work at Google this week?"
+// );
+// let googleConfirm = confirm(`Is ${hoursWorkedGoogle} hours, correct?`);
+// let totalGooglePay = hoursWorkedGoogle * googlePay;
+// let formatGooglePay = totalGooglePay.toLocaleString("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+// for (let i = 0; i < 10; i++) {
+//   if (googleConfirm == false) {
+//     hoursWorkedGoogle = prompt(
+//       `Please enter the number of hours you worked this week.`
+//     );
+//     googleConfirm = confirm(`is ${hoursWorkedGoogle} hours, correct?`);
+//   } else if (googleConfirm == true) {
+//     alert(
+//       `The total amount you earned working for Google this week is: ${formatGooglePay}`
+//     );
+//     {
+//       break;
+//     }
+//   } else {
+//     alert(
+//       `The total amount you earned working for Google this week is: $${formatGooglePay}`
+//     );
+//   }
+// }
+
+// alert("You will be getting paid $380 an hour for Amazon.");
+// let hoursWorkedAmazon = prompt(
+//   "How many hours did you work at Amazon this week?"
+// );
+// let amazonConfirm = confirm(`Is ${hoursWorkedAmazon} hours, correct?`);
+// let totalAmazonPay = hoursWorkedAmazon * amazonPay;
+// let formatAmazonPay = totalAmazonPay.toLocaleString("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+
+// for (let j = 0; j < 10; j++) {
+//   if (amazonConfirm == false) {
+//     hoursWorkedAmazon = prompt(
+//       "How many hours did you work at Amazon this week?"
+//     );
+//     amazonConfirm = confirm(`Is ${hoursWorkedAmazon} hours, correct?`);
+//   } else if (amazonConfirm == true) {
+//     alert(
+//       `The total amount you earned working for Amazon this week is: ${formatAmazonPay}`
+//     );
+//     {
+//       break;
+//     }
+//   } else {
+//     alert(
+//       `The total amount you earned working for Amazon this week is: ${formatAmazonPay}`
+//     );
+//   }
+// }
+
+// alert(`You will be getting paid $${facebookPay} an hour from Facebook.`);
+// let hoursWorkedFacebook = prompt(
+//   "How many hours did you work for Facebook this week?"
+// );
+// let facebookConfirm = confirm(`Is ${hoursWorkedFacebook} hours, correct?`);
+// let totalFacebookPay = facebookPay * hoursWorkedFacebook;
+// let formatFacebookPay = totalFacebookPay.toLocaleString("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+
+// for (k = 0; k < 10; k++) {
+//   if (facebookConfirm == false) {
+//     hoursWorkedFacebook = prompt(
+//       "How many hours did you work at Facebook this week?"
+//     );
+//     facebookConfirm = confirm(`Is ${hoursWorkedFacebook} hours, correct?`);
+//   } else if (facebookConfirm == true) {
+//     alert(
+//       `The total amount you have earned from Facebook this week is ${formatFacebookPay}.`
+//     );
+//     {
+//       break;
+//     }
+//   } else {
+//     alert(
+//       `The total amount you have earned from Facebook this week is ${formatFacebookPay}.`
+//     );
+//   }
+// }
+// let totalIncome = totalAmazonPay + totalGooglePay + totalFacebookPay;
+// let formattedIncome = totalIncome.toLocaleString("en-US", {
+//   style: "currency",
+//   currency: "USD",
+// });
+// alert(`Your total earnings this week is ${formattedIncome}!`);
+
+/*
+Suppose you're working as a contractor for 3 companies: Google, Amazon and Facebook, they pay you a different rate per hour. Google pays $400, Amazon $380, and Facebook $350. How much will you receive in payment for this week? You worked 10 hours for Facebook, 6 hours for Google and 4 hours for Amazon.
 */
-let googlePay = 400;
-let amazonPay = 380;
-let facebookPay = 350;
 
-alert("You will be getting paid $400 an hour for Google.");
-let hoursWorkedGoogle = prompt(
-  "How many hours did you work at Google this week?"
-);
-let googleConfirm = confirm(`Is ${hoursWorkedGoogle} hours, correct?`);
-let totalGooglePay = hoursWorkedGoogle * googlePay;
-let formatGooglePay = totalGooglePay.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
+const contractPay = (hoursA, hoursB, hoursC) => {
+  let googlePayPerHour = 400;
+  let amazonPayPerHour = 380;
+  let facebookPayPerHour = 350;
+  //local variable
+  let googleFinalPay = googlePayPerHour * hoursA;
+  let amazonFinalPay = amazonPayPerHour * hoursB;
+  let facebookFinalPay = facebookPayPerHour * hoursC;
+  let finalIncome = googleFinalPay + amazonFinalPay + facebookFinalPay;
 
-for (let i = 0; i < 10; i++) {
-  if (googleConfirm == false) {
-    hoursWorkedGoogle = prompt(
-      `Please enter the number of hours you worked this week.`
-    );
-    googleConfirm = confirm(`is ${hoursWorkedGoogle} hours, correct?`);
-  } else if (googleConfirm == true) {
-    alert(
-      `The total amount you earned working for Google this week is: ${formatGooglePay}`
-    );
-    {
-      break;
-    }
-  } else {
-    alert(
-      `The total amount you earned working for Google this week is: $${formatGooglePay}`
-    );
-  }
-}
+  let formattedIncome = finalIncome.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+  return "Your final pay is: " + formattedIncome;
+};
 
-alert("You will be getting paid $380 an hour for Amazon.");
-let hoursWorkedAmazon = prompt(
-  "How many hours did you work at Amazon this week?"
-);
-let amazonConfirm = confirm(`Is ${hoursWorkedAmazon} hours, correct?`);
-let totalAmazonPay = hoursWorkedAmazon * amazonPay;
-let formatAmazonPay = totalAmazonPay.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
+contractPay(12, 13, 14);
 
-for (let j = 0; j < 10; j++) {
-  if (amazonConfirm == false) {
-    hoursWorkedAmazon = prompt(
-      "How many hours did you work at Amazon this week?"
-    );
-    amazonConfirm = confirm(`Is ${hoursWorkedAmazon} hours, correct?`);
-  } else if (amazonConfirm == true) {
-    alert(
-      `The total amount you earned working for Amazon this week is: ${formatAmazonPay}`
-    );
-    {
-      break;
-    }
-  } else {
-    alert(
-      `The total amount you earned working for Amazon this week is: ${formatAmazonPay}`
-    );
-  }
-}
-
-alert(`You will be getting paid $${facebookPay} an hour from Facebook.`);
-let hoursWorkedFacebook = prompt(
-  "How many hours did you work for Facebook this week?"
-);
-let facebookConfirm = confirm(`Is ${hoursWorkedFacebook} hours, correct?`);
-let totalFacebookPay = facebookPay * hoursWorkedFacebook;
-let formatFacebookPay = totalFacebookPay.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
-
-for (k = 0; k < 10; k++) {
-  if (facebookConfirm == false) {
-    hoursWorkedFacebook = prompt(
-      "How many hours did you work at Facebook this week?"
-    );
-    facebookConfirm = confirm(`Is ${hoursWorkedFacebook} hours, correct?`);
-  } else if (facebookConfirm == true) {
-    alert(
-      `The total amount you have earned from Facebook this week is ${formatFacebookPay}.`
-    );
-    {
-      break;
-    }
-  } else {
-    alert(
-      `The total amount you have earned from Facebook this week is ${formatFacebookPay}.`
-    );
-  }
-}
-let totalIncome = totalAmazonPay + totalGooglePay + totalFacebookPay;
-let formattedIncome = totalIncome.toLocaleString("en-US", {
-  style: "currency",
-  currency: "USD",
-});
-alert(`Your total earnings this week is ${formattedIncome}!`);
+alert(contractPay(12, 12, 12));
