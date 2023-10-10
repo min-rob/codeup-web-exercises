@@ -51,7 +51,7 @@ const randomColor = colors[Math.floor(Math.random() * colors.length)];
  * You should see a different message every time you refresh the page
  */
 
-//console.log(analyzeColor(randomColor));
+console.log(analyzeColor(randomColor));
 
 /**
  * TODO:
@@ -80,6 +80,7 @@ console.log(color);
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
+
 // const userColor = prompt("So, what is your favorite color?");
 // alert(analyzeColor(userColor));
 
@@ -134,7 +135,7 @@ const calculateTotal = (luckyNum, totalAmt) => {
       }% off! Your new total is ${formattedTotal}`
     );
   } else if (luckyNum === 2) {
-    discountedPrice = discountNum * totalAmt;
+    discountedPrice = (discountNum + 0.05) * totalAmt;
     totalCost = totalAmt - discountedPrice;
     formattedTotal = totalCost.toLocaleString("en-US", {
       style: "currency",
@@ -142,11 +143,11 @@ const calculateTotal = (luckyNum, totalAmt) => {
     });
     alert(
       `Nice! looks like your lucky number was ${luckyNum}, you get ${
-        discountNum * 100
+        (discountNum + 0.05) * 100
       }% off! Your new total is ${formattedTotal}`
     );
   } else if (luckyNum === 3) {
-    discountedPrice = discountNum * totalAmt;
+    discountedPrice = (discountNum + 0.05) * totalAmt;
     totalCost = totalAmt - discountedPrice;
     formattedTotal = totalCost.toLocaleString("en-US", {
       style: "currency",
@@ -154,11 +155,11 @@ const calculateTotal = (luckyNum, totalAmt) => {
     });
     alert(
       `Nice! looks like your lucky number was ${luckyNum}, you get ${
-        discountNum * 100
+        (discountNum + 0.05) * 100
       }% off! Your new total is ${formattedTotal}`
     );
   } else if (luckyNum === 4) {
-    discountedPrice = discountNum * totalAmt;
+    discountedPrice = (discountNum + 0.1) * totalAmt;
     totalCost = totalAmt - discountedPrice;
     formattedTotal = totalCost.toLocaleString("en-US", {
       style: "currency",
@@ -166,20 +167,20 @@ const calculateTotal = (luckyNum, totalAmt) => {
     });
     alert(
       `Nice! looks like your lucky number was ${luckyNum}, you get ${
-        discountNum * 100
+        (discountNum + 0.1) * 100
       }% off! Your new total is ${formattedTotal}`
     );
   } else if (luckyNum === 5) {
-    discountedPrice = discountNum * totalAmt;
+    discountedPrice = (discountNum + 0.5) * totalAmt;
     totalCost = totalAmt - discountedPrice;
     formattedTotal = totalCost.toLocaleString("en-US", {
       style: "currency",
       currency: "USD",
     });
     alert(
-      `Nice! looks like your lucky number was ${luckyNum}, you get ${
-        discountNum * 100
-      }% off! Your new total is ${formattedTotal}`
+      `Holy smokes! looks like your lucky number was ${luckyNum}, you get ${
+        (discountNum + 0.5) * 100
+      }% off! Your new total is ${formattedTotal} ITS FREE!`
     );
   }
 };
@@ -253,29 +254,33 @@ const userQuest = () => {
   );
   if (userAns === true) {
     let userNum = prompt("Please enter a number to start!");
-    if (userNum.length != 0) {
-      console.log(userNum);
-      if (userNum % 2 === 1 || userNum % 2 === -1) {
+    const floatUserNum = parseFloat(userNum);
+    console.log(floatUserNum);
+    if (userNum.length !== 0 && floatUserNum === isNaN) {
+      console.log(typeof userNum);
+      if (floatUserNum % 2 === 1 || floatUserNum % 2 === -1) {
         alert("Looks like your number is odd!");
-        let plus100 = parseFloat(userNum) + 100;
-        alert(`Your number ${userNum} + 100 is ${plus100}`);
-        if (userNum > 0) {
+        let plus100 = floatUserNum + 100;
+        alert(`Your number ${floatUserNum} + 100 is ${plus100}`);
+        if (floatUserNum > 0) {
           alert("Your number is also positive!");
         } else {
           alert("Your number is negative!");
         }
-      } else if (userNum % 2 === 0) {
+      } else if (floatUserNum % 2 === 0) {
         alert("Looks like your number is even!");
-        let plus100 = parseFloat(userNum) + 100;
-        alert(`Your number ${userNum} + 100 is ${plus100}`);
-        if (userNum > 0) {
+        let plus100 = floatUserNum + 100;
+        alert(`Your number ${floatUserNum} + 100 is ${plus100}`);
+        if (floatUserNum > 0) {
           alert("Your number is also positive!");
         } else {
           alert("Your number is also negative!");
         }
       }
     } else {
-      alert("Uh oh! Looks like you forgot to enter something!");
+      alert(
+        "Uh oh! Looks like you forgot to enter something, or you didn't put a number."
+      );
       return;
     }
   } else {
