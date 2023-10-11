@@ -17,11 +17,10 @@ do {
   console.log(`Customer wants to buy ${boughtByCustomer} cones`);
   if (boughtByCustomer <= coneStock) {
     coneStock -= boughtByCustomer;
-    console.log(`Sold ${boughtByCustomer} cones, ${coneStock} left.`);
-  } else {
-    console.log(
-      `Can't sell more cones then we have! we have ${coneStock} left..`
-    );
+    console.log(`Sold ${boughtByCustomer} cone(s), we have ${coneStock} left.`);
+  } else if (boughtByCustomer > coneStock) {
+    console.log(`customer bought the last ${coneStock} left..`);
+    coneStock = 0;
   }
 } while (coneStock > 0);
 console.log("We've sold all the icecream cones!");
