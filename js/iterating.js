@@ -24,7 +24,7 @@ const last = (array) => {
    * array.
    */
 
-  console.log(names.length);
+  console.log(`number of elements in the array: ${names.length}`);
 
   /**
    * TODO:
@@ -41,7 +41,7 @@ const last = (array) => {
    */
 
   for (let i = 0; i < names.length; i++) {
-    console.log(names[i]);
+    console.log(`All the names: ${names[i]}`);
   }
 
   /**
