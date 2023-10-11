@@ -18,7 +18,7 @@ do {
   if (boughtByCustomer <= coneStock) {
     coneStock -= boughtByCustomer;
     console.log(`Sold ${boughtByCustomer} cone(s), we have ${coneStock} left.`);
-  } else if (boughtByCustomer > coneStock) {
+  } else if (coneStock > 0 && boughtByCustomer > coneStock) {
     console.log(`customer bought the last ${coneStock} left..`);
     coneStock = 0;
   }

@@ -12,7 +12,7 @@ const showMultiplicationTable = (num) => {
 
 const randomNumGenerate = () => {
   let result;
-  for (let i = 0; i < 10; i++) {
+  for (let i = 0; i <= 10; i++) {
     let theNum = Math.floor(Math.random() * (200 - 20) + 20);
     if (theNum % 2 === 0) {
       console.log(`${theNum} is even.`);
