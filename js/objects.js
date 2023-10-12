@@ -89,28 +89,28 @@
    * > console.log(books[0].author.lastName) // "Adams"
    */
 
-  //   const books = [
-  //     {
-  //       title: "Rich Dad Poor Dad",
-  //       author: { firstName: "Robert", lastName: "Kiyosaki" },
-  //     },
-  //     {
-  //       title: "The Intelligent Investor",
-  //       author: { firstName: "Benjamin", lastName: "Graham" },
-  //     },
-  //     {
-  //       title: "Think and Grow Rich",
-  //       author: { firstName: "Napoleon", lastName: "Hill" },
-  //     },
-  //     {
-  //       title: "The Total Money Makeover",
-  //       author: { firstName: "Dave", lastName: "Ramsey" },
-  //     },
-  //     {
-  //       title: "Secrets of the Millionaire Mind",
-  //       author: { firstName: "T.Harv", lastName: "Eker" },
-  //     },
-  //   ];
+  const books = [
+    {
+      title: "Rich Dad Poor Dad",
+      author: { firstName: "Robert", lastName: "Kiyosaki" },
+    },
+    {
+      title: "The Intelligent Investor",
+      author: { firstName: "Benjamin", lastName: "Graham" },
+    },
+    {
+      title: "Think and Grow Rich",
+      author: { firstName: "Napoleon", lastName: "Hill" },
+    },
+    {
+      title: "The Total Money Makeover",
+      author: { firstName: "Dave", lastName: "Ramsey" },
+    },
+    {
+      title: "Secrets of the Millionaire Mind",
+      author: { firstName: "T.Harv", lastName: "Eker" },
+    },
+  ];
 
   /**
    * TODO:
@@ -168,26 +168,32 @@
     let bookTitle;
     let authorFirstName;
     let authorLastName;
-    bookTitle = prompt("Please enter the title of your book.");
-    console.log(bookTitle);
-    authorFirstName = prompt("Please enter the first name of your author.");
-    console.log(authorFirstName);
-    authorLastName = prompt("Please enter the last name of your author.");
-    console.log(authorLastName);
-    newBooks = [
-      {
+    let answer;
+    do {
+      bookTitle = prompt("Please enter the title of your book.");
+      console.log(bookTitle);
+      authorFirstName = prompt("Please enter the first name of your author.");
+      console.log(authorFirstName);
+      authorLastName = prompt("Please enter the last name of your author.");
+      console.log(authorLastName);
+      answer = confirm("Would you like to add another book?");
+      console.log(answer);
+      (newBooks = {
         title: bookTitle,
         author: {
           firstName: authorFirstName,
           lastName: authorLastName,
         },
-      },
-    ];
-    return;
+      }),
+        books.push(newBooks);
+    } while (answer === true);
+    {
+      alert("Thank you come again");
+    }
   };
 
   createBook();
-  console.log(newBooks);
+  console.log(books);
 
   const listBook = (arrBooks) => {
     arrBooks.forEach((book) => {
