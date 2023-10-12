@@ -35,9 +35,9 @@ const isNarcissisticNum = (n) => {
         result += ",";
       }
     }
-    let newResult = [];
-    toArray = result.split(",");
-    console.log("This is back to an array", toArray); //turning the string into an array by splitting.
+    let newResult = []; //set empty array as a variable
+    toArray = result.split(","); //turning the string into an array by splitting.
+    console.log("This is back to an array", toArray);
     for (let j = 0; j < toArray.length; j++) {
       // looping the array to power each num in the array by the length of the original input
       newResult.push(Math.pow(toArray[j], numString.length));
@@ -56,3 +56,20 @@ const isNarcissisticNum = (n) => {
 };
 
 isNarcissisticNum(370);
+
+/*
+TODO:
+Amateur challenges
+*/
+
+/*
+Write a function that returns the SUM of a sequence of numbers. This sequence is determined by three variables: start, finish, and step. The sequence begins at start, ends at finish, and goes up by step until it reaches finish or a number that when increased by step would go past finish 
+
+example:
+Input: start: 1 finish: 4 step: 1 | Output: 10
+*/
+
+const summedSequence = (start, finish, step) => {
+  let result;
+  for (start = 0; start <= finish; step++) {}
+};
