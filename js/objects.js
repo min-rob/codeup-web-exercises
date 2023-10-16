@@ -162,9 +162,8 @@
    *   `showBookInfo` function.
    */
 
-  let newBooks = [];
-
   const createBook = () => {
+    let newBooks = [];
     let bookTitle;
     let authorFirstName;
     let authorLastName;
@@ -193,16 +192,29 @@
   };
 
   createBook();
-  console.log(books);
+  // console.log(books);
 
-  const listBook = (arrBooks) => {
-    arrBooks.forEach((book) => {
-      const title = book.title;
-      const fullName = `${book.author.firstName} ${book.author.lastName}`;
-      const index = arrBooks.indexOf(book);
-      console.log(`Book # ${index + 1}\nTitle: ${title}\nAuthor: ${fullName}`);
-    });
+  // const listBook = (arrBooks) => {
+  //   arrBooks.forEach((book) => {
+  //     const title = book.title;
+  //     const fullName = `${book.author.firstName} ${book.author.lastName}`;
+  //     const index = arrBooks.indexOf(book);
+  //     console.log(`Book # ${index + 1}\nTitle: ${title}\nAuthor: ${fullName}`);
+  //   });
+  // };
+
+  const showBookInfo = (arr) => {
+    let result;
+    for (let book of arr) {
+      const i = arr.indexOf(book);
+      const { title } = book;
+      const { firstName, lastName } = book.author;
+      result = console.log(
+        `Book # ${i + 1}\nTitle: ${title}\nAuthor: ${firstName} ${lastName}`
+      );
+    }
+    return result;
   };
 
-  listBook(newBooks);
+  showBookInfo(books);
 })();
