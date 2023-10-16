@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register with us</title>
+  </head>
+  <body>
+    <main style="display: flex; justify-content: center; align-items: center">
+      <div
+        class="form__wrapper"
+        style="
+          display: flex;
+          border-style: solid;
+          border-radius: 10px;
+          padding: 24px;
+        "
+      >
+        <form method="POST" action="https://request-inspector.glitch.me/">
+          <h1 class="form__title" style="font-size: 24px">Register with us!</h1>
+          <div
+            class="input__wrapper"
+            style="display: flex; flex-direction: column"
+          >
+            <label
+              for="email"
+              style="display: flex; flex-direction: column; padding: 6px"
+            >
+              Email
+              <input
+                type="text"
+                name="email"
+                id="email"
+                placeholder="Enter your email."
+              />
+            </label>
+            <label
+              for="password"
+              style="display: flex; flex-direction: column; padding: 6px"
+            >
+              Password
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter your password."
+              />
+            </label>
+            <label
+              for="bio"
+              style="display: flex; flex-direction: column; padding: 6px"
+            >
+              Enter a brief bio about yourself.
+              <textarea name="bio"> </textarea>
+            </label>
+          </div>
+          <div
+            class="radio__wrapper"
+            style="margin-top: 12px; margin-bottom: 12px; gap: 8px"
+          >
+            <label style="padding: 6px">
+              How did you hear about us?<br />
+              <input
+                name="referrer"
+                value="true"
+                type="radio"
+                value="Billboard"
+              />Billboard<br />
+              <input
+                name="referrer"
+                value="true"
+                type="radio"
+                value="Radio Advertisement"
+              />Radio Advertisement<br />
+              <input
+                name="referrer"
+                value="true"
+                type="radio"
+                value="Internet Advertisement"
+              />Internet Advertisement<br />
+              <input
+                name="referrer"
+                value="true"
+                type="radio"
+                value="Other"
+              />Other<br />
+            </label>
+          </div>
+          <div
+            class="selector__wrapper"
+            style="display: flex; flex-direction: column"
+          >
+            <label
+              for="browser_preference"
+              style="
+                display: flex;
+                flex-direction: column;
+                padding: 6px 0 6px 0;
+              "
+              >What is your preferred browser?
+              <select name="browser_preference">
+                <option value="google">Google Chrome</option>
+                <option value="firefox">Firefox</option>
+                <option value="brave">Brave</option>
+                <option value="tor">Tor</option>
+                <option value="safari">Safari</option>
+              </select>
+            </label>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
+</html>

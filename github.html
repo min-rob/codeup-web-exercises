@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Github Recreate</title>
+    <link rel="stylesheet" href="./styles/github.css" />
+  </head>
+  <body style="margin: auto">
+    <nav
+      style="
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        background-color: black;
+        height: 70px;
+      "
+    >
+      <a href="" style="padding: 0 24px 0 24px">
+        <img src="./img/github-mark-white.svg" height="50" width="50" />
+      </a>
+      <a
+        href=""
+        style="
+          padding: 0 12px 0 12px;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        "
+      >
+        Pull requests
+      </a>
+      <a
+        href=""
+        style="
+          padding: 0 12px 0 12px;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        "
+      >
+        Issues
+      </a>
+      <a
+        href=""
+        style="
+          padding: 0 12px 0 12px;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        "
+      >
+        Marketplace
+      </a>
+      <a
+        href=""
+        style="
+          padding: 0 12px 0 12px;
+          color: white;
+          text-decoration: none;
+          font-weight: bold;
+        "
+      >
+        Explore
+      </a>
+    </nav>
+    <header>
+      <div
+        class="logo-wrapper"
+        style="padding: 12px; background-color: #d3d3d3"
+      >
+        <img src="./img/codeup-logo.png" width="125" height="50" />
+      </div>
+    </header>
+    <section class="menu">
+      <div id="button-wrapper">
+        <div
+          id="defaultOpen"
+          class="menu-button tablink active"
+          onclick="openTab('repositories', this, 'white')"
+        >
+          Repositories
+        </div>
+        <div
+          class="menu-button tablink"
+          onclick="openTab('people', this, 'white')"
+        >
+          People
+        </div>
+        <div
+          class="menu-button tablink"
+          onclick="openTab('teams', this, 'white')"
+        >
+          Teams
+        </div>
+        <div
+          class="menu-button tablink"
+          onclick="openTab('projects', this, 'white')"
+        >
+          Projects
+        </div>
+        <div
+          class="menu-button tablink"
+          onclick="openTab('settings', this, 'white')"
+        >
+          Settings
+        </div>
+      </div>
+      <div id="repositories" class="items">
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Codeup's dev team</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div id="profile-img-wrapper"></div>
+                  <div id="user-name"></div>
+                  <div id="user-real-name"></div>
+                </td>
+                <td>
+                  <div id="profile-img-wrapper"></div>
+                  <div id="user-name"></div>
+                  <div id="user-real-name"></div>
+                </td>
+                <td>
+                  <div id="profile-img-wrapper"></div>
+                  <div id="user-name"></div>
+                  <div id="user-real-name"></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div id="sections-content">
+        <div id="people" class="items" style="display: none">
+          <p>asdf</p>
+        </div>
+        <div id="teams" class="items" style="display: none">
+          <p>ghjj</p>
+        </div>
+        <div id="projects" class="items" style="display: none">
+          <p>qwer</p>
+        </div>
+        <div id="settings" class="items" style="display: none">
+          <p>uio</p>
+        </div>
+      </div>
+    </section>
+    <script>
+      function openTab(pageName, elmnt, color) {
+        // Hide all elements with class="tabcontent" by default */
+        var i, items, tablinks;
+        items = document.getElementsByClassName("items");
+        for (i = 0; i < items.length; i++) {
+          items[i].style.display = "none";
+        }
+
+        // Remove the background color of all tablinks/buttons
+        tablinks = document.getElementsByClassName("tablink");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].style.backgroundColor = "";
+          tablinks[i].style.borderTop = "";
+          tablinks[i].style.borderColor = "";
+        }
+
+        // Show the specific tab content
+        document.getElementById(pageName).style.display = "block";
+
+        // Add the specific color to the button used to open the tab content
+        elmnt.style.backgroundColor = color;
+        elmnt.style.borderTop = "solid, red, 3px";
+        elmnt.style.borderRightStyle = "solid";
+        elmnt.style.borderLeftStyle = "solid";
+      }
+
+      // Get the element with id="defaultOpen" and click on it
+      document.getElementById("defaultOpen").click();
+    </script>
+  </body>
+</html>
