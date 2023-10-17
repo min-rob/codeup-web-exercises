@@ -135,4 +135,36 @@ const longestPalindrome = (str) => {
 
 console.log(longestPalindrome("bee"));
 
-// guessNumber
+const shoppingCart = [
+  { name: "Shoes", price: 50 },
+  { name: "T-shirt", price: 20 },
+  { name: "Jeans", price: 45 },
+  { name: "Socks", price: 5 },
+];
+
+// Use a for...of loop to calculate the total cost
+let totalCost = 0;
+
+for (const item of shoppingCart) {
+  totalCost += item.price;
+}
+
+console.log(`Total cost of items in the shopping cart: $${totalCost}`);
+
+//Problem: Find the number of vowels in a given string.
+
+const vowelsInString = (str) => {
+  const vowels = "aeiou"; //set the vowels
+  let vowelCount = 0; //set a default vowel count of 0;
+  for (const char in str) {
+    //using a for in loop, we're iterating for each char inside the string
+    const lowercaseChar = str[char].toLowerCase(); // we're setting all of the char's to lowercase.
+    if (vowels.includes(lowercaseChar)) {
+      //we use a conditional to check if the lowercaseChar variable includes any of the vowels
+      vowelCount++; // if returns true we increment each time there's a vowel within the string. this is inside the for loop so it iterates.
+    }
+  }
+  return vowelCount;
+};
+
+console.log(vowelsInString("Hello how are you today"));
