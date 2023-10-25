@@ -1,0 +1,8 @@
+@import "position-lecture-base.css";
+
+/* This is the file we will use to experiment with position */
+
+#item-1 {
+  position: absolute;
+  z-index: 1;
+}
