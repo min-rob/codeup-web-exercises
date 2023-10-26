@@ -107,3 +107,38 @@ const students = [
 ];
 
 console.log(createPairs(students));
+
+function isPangram(string) {
+  string = string.toLowerCase();
+  let count = {};
+  for (let i = 0; i < string.length; i++) {
+    const char = string[i];
+    if (char >= "a" && char <= "z") {
+      count[char] = (count[char] || 0) + 1;
+    }
+  }
+  return Object.keys(count).length === 26;
+}
+
+console.log(isPangram("The Quick Brown Fox Jumps Over The Lazy Dog "));
+
+function duplicateCount(text) {
+  text = text.toLowerCase();
+  let count = {};
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
+    if (char.match(/[a-z0-9]/)) {
+      count[char] = (count[char] || 0) + 1;
+    }
+  }
+  let numRepeat = 0;
+  for (const char in count) {
+    if (count[char] > 1) {
+      numRepeat++;
+    }
+  }
+  return numRepeat;
+}
+
+console.log(duplicateCount("Indivisibilities"));
+
