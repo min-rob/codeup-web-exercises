@@ -122,23 +122,51 @@ function isPangram(string) {
 
 console.log(isPangram("The Quick Brown Fox Jumps Over The Lazy Dog "));
 
-function duplicateCount(text) {
-  text = text.toLowerCase();
-  let count = {};
-  for (let i = 0; i < text.length; i++) {
-    const char = text[i];
-    if (char.match(/[a-z0-9]/)) {
-      count[char] = (count[char] || 0) + 1;
-    }
-  }
-  let numRepeat = 0;
-  for (const char in count) {
-    if (count[char] > 1) {
-      numRepeat++;
-    }
-  }
-  return numRepeat;
-}
+// function duplicateCount(text) {
+//   text = text.toLowerCase();
+//   let count = {};
+//   for (let i = 0; i < text.length; i++) {
+//     const char = text[i];
+//     if (char.match(/[a-z0-9]/)) {
+//       count[char] = (count[char] || 0) + 1;
+//     }
+//   }
+//   let numRepeat = 0;
+//   for (const char in count) {
+//     if (count[char] > 1) {
+//       numRepeat++;
+//     }
+//   }
+//   return numRepeat;
+// }
 
-console.log(duplicateCount("Indivisibilities"));
+// console.log(duplicateCount("Indivisibilities"));
 
+//sum of digits
+
+//Given n take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. the input will be a non-negative integer.
+
+//16 -> 1 + 7 = 7
+//942 --> 9 + 4 + 2 = 15 => 1 + 5 => 6
+/**
+ * Figure out if n is > 1 digit.
+ * Split the input "n" into an array, then we will need to loop through the arrays,
+ *
+ */
+
+const sumOfDigits = (n) => {
+  function add(acc, curr) {
+    return parseFloat(acc) + parseFloat(curr);
+  }
+  let numArr = n.toString().split("");
+  while (numArr.length > 1) {
+    const sum = numArr.reduce(add);
+    numArr = sum.toString().split("");
+  }
+  const result = parseFloat(numArr[0]);
+  return result;
+};
+
+console.log(sumOfDigits(942));
+
+//Given n take the sum of the digits of n. If that value has more than one digit, continue reducing in this way until a single-digit number is produced. the input will be a non-negative integer.
