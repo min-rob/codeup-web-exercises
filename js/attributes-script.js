@@ -6,6 +6,13 @@ Use setTimout to create these behaviors.
 Write code that toggles a class on the "profile-card" that changes its background color every two seconds. Use setInterval.
 */
 
+const onClickHandler = () => {
+  const profileCard = document.querySelector("#profile-card");
+  profileCard.classList.toggle("new-background");
+  console.log("clicked");
+};
+const colors = ["red", "blue", "green", "yellow", "orange", "purple"];
+
 (() => {
   const profilePic = document.querySelector("#profile-pic");
 
@@ -22,18 +29,18 @@ Write code that toggles a class on the "profile-card" that changes its backgroun
   setTimeout(() => {
     profileDesc.classList.add("new-font");
     const newFont = document.querySelector(".new-font");
-    newFont.style.color = "blue";
-    newFont.style.font = "--text-font";
   }, 6000);
 
   //   const profileCard = document.querySelector("#profile-card");
   //   setInterval(() => {
   //     profileCard.classList.toggle("new-background");
   //   }, 2000);
-})();
 
-const onClickHandler = () => {
-  const profileCard = document.querySelector("#profile-card");
-  profileCard.classList.toggle("new-background");
-  console.log("clicked");
-};
+  //create an array of colors
+
+  setInterval(() => {
+    const profileCard = document.querySelector("#profile-card");
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    profileCard.style.backgroundColor = colors[randomIndex];
+  }, 2000);
+})();

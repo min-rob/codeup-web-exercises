@@ -1,0 +1,33 @@
+.page-wrapper {
+    min-height: 100dvw;
+    display: flex;
+    flex-direction: column;
+}
+
+.dropdown-parent {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    background-color: azure;
+    border: 1px solid grey;
+    border-radius: 6px;
+    position: absolute;
+    top: 100%;
+    width: 175px;
+}
+
+.menu-item {
+    display: flex;
+    padding: 10px 0px;
+}
