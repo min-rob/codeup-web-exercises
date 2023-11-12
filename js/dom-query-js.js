@@ -40,22 +40,32 @@ Make all paragraphs have a font size of 18px when they are double clicked.
 Set all li text color to red when the mouse is hovering; reset to black when it is not.
  */
 
+const handleParagraphClick = () => {
+    const paragraphs = document.querySelectorAll("p");
+    for (let paragraph of paragraphs) {
+        paragraph.style.fontSize = "18px";
+    }
+};
+
 (() => {
     const mainHead = document.querySelector("#main-header");
-    mainHead.addEventListener("click", () => {
-        mainHead.style.backgroundColor = "green";
+    mainHead.addEventListener("click", (e) => {
+        e.target.style.backgroundColor = "green";
     });
-    const paragraph = document.querySelector(".sub-paragraph");
-    paragraph.addEventListener("dblclick", () => {
-        paragraph.style.fontSize = "18px";
-    });
+    const paragraphs = document.querySelectorAll("p");
+    // paragraph.addEventListener("dblclick", (e) => {
+    //     e.target.style.fontSize = "18px";
+    // });
+    for (let paragraph of paragraphs) {
+        paragraph.addEventListener("dblclick", handleParagraphClick);
+    }
     const listItems = document.querySelectorAll("li");
     for (let listItem of listItems) {
-        listItem.addEventListener("mouseenter", () => {
-            listItem.style.color = "red";
+        listItem.addEventListener("mouseenter", (e) => {
+            e.target.style.color = "red";
         });
-        listItem.addEventListener("mouseleave", () => {
-            listItem.style.color = "black";
+        listItem.addEventListener("mouseleave", (e) => {
+            e.target.style.color = "black";
         });
     }
 
