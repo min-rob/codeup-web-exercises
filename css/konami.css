@@ -17,8 +17,6 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 12px;
-}
-
-.pressed {
-    transition: ease-in 0.3s;
+    justify-content: start;
+    align-items: center;
 }
