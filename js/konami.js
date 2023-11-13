@@ -203,8 +203,14 @@ const cheatSuccessHandler = (code) => {
         if (event.key === "Enter") {
             for (let i = 0; i < konamiCode.length; i++) {
                 if (konamiCode.length !== userInput.length) {
-                    return alert("Incorrect code!");
+                    alert("Incorrect code!");
+                    userInput = [];
+                    return;
                 } else {
+                    // const mainContent = document.querySelector(".main");
+                    // mainContent.classList.add("hide");
+                    // const success = document.querySelector("code-activated");
+                    // success.classList.add("active");
                     return alert("Konami code activated!");
                 }
             }

@@ -4,8 +4,17 @@
     height: 100dvh;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: center;
     align-items: center;
+    background-image: url("/konami/background.jpg");
+    background-position: center;
+    background-size: cover;
+    box-shadow: 5px 6px 14px 4px rgba(0, 0, 0, 0.33);
+}
+
+.img-wrapper {
+    border-radius: 16px 0px 0 0;
+    overflow: hidden;
 }
 
 h1 {
@@ -20,3 +29,44 @@ ul {
     justify-content: start;
     align-items: center;
 }
+
+.col {
+    background-color: black;
+    border-radius: 16px;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 24px;
+}
+
+.key-board-wrapper {
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+
+.input-display-wrapper {
+    text-wrap: wrap;
+    & span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.code-activated {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 
+.hide {
+    display: none;
+}
+.active {
+    display: flex;
+} */
