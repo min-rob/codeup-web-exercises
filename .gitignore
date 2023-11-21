@@ -3,7 +3,6 @@ node_modules
 
 #local files
 .idea
-.env
 keys.js
 
 #production
