@@ -10,8 +10,12 @@
         <div class="page-wrapper">
             <header>
                 <nav class="row">
-                    <div class="col-3 lt-navbar">
+                    <div
+                        id="lt-navbar"
+                        class="col-3 lt-navbar d-flex align-items-center"
+                    >
                         <div
+                            id="lt-navbar-content"
                             class="d-flex align-items-center justify-content-between"
                         >
                             <div
@@ -54,7 +58,7 @@
                         <div
                             class="weather-card-container d-flex flex-column gap-4"
                         >
-                            <h2>5 Day Forecast</h2>
+                            <h2 id="forecast-location"></h2>
 
                             <div class="card weather-card">
                                 <div

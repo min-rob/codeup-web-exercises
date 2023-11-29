@@ -109,6 +109,8 @@ const setLocation = async (address = [-77.60706, 38.78828]) => {
 
     const locationText = document.querySelector("#user-location");
     locationText.textContent = `${city}, ${state}`;
+    const forecastLocation = document.querySelector("#forecast-location");
+    forecastLocation.textContent = `Forcast in: ${city}, ${state}`;
 };
 
 const updateTime = () => {
@@ -119,7 +121,7 @@ const updateTime = () => {
 
     hours = hours % 12 || 12;
 
-    const formattedTime = `Current time: ${hours}:${
+    const formattedTime = `Time: ${hours}:${
         minutes < 10 ? "0" : ""
     }${minutes} ${ampm}`;
 

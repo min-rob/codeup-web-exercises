@@ -24,6 +24,12 @@ ul {
     padding: unset;
 }
 
+nav {
+    height: 50px;
+    max-height: 50px;
+    overflow: visible;
+}
+
 .page-wrapper {
     min-height: 100dvh;
     display: flex;
@@ -39,6 +45,10 @@ ul {
 
 .map-wrapper {
     border-radius: 10px;
+}
+
+#lt-navbar {
+    max-height: inherit;
 }
 
 .search-container {
@@ -116,4 +126,8 @@ ul {
 
 #user-location {
     margin: 0;
+}
+
+#lt-navbar-content {
+    width: 100%;
 }
