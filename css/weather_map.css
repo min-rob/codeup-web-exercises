@@ -30,6 +30,10 @@ nav {
     overflow: visible;
 }
 
+.hidden {
+    display: none;
+}
+
 .page-wrapper {
     min-height: 100dvh;
     display: flex;

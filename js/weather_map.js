@@ -44,13 +44,11 @@ const handleSearchBar = (callback) => {
                     sessionToken = generateSessionToken();
                 }
 
-                // Fetch suggestions using Mapbox Geocoding API
                 const suggestions = await fetchSuggestions(
                     userInput,
                     sessionToken
                 );
 
-                // Display suggestions below the search bar
                 for (let suggestion of suggestions) {
                     const li = document.createElement("li");
                     li.classList.add("suggestion");
@@ -60,6 +58,7 @@ const handleSearchBar = (callback) => {
                         saveSuggestionClick(suggestion);
                         console.log("Returned suggestion:", suggestion);
                         callback(suggestion);
+                        suggestionList.innerHTML = "";
                     });
                     suggestionList.appendChild(li);
                 }
@@ -146,6 +145,11 @@ const updateTime = () => {
             .setLngLat(coordinates)
             .addTo(map)
             .setPopup(popup);
+        const city = suggestion.context.place.name;
+        const state = suggestion.context.region.name;
+        console.log("new city/state", city, state);
+        const forecastLocation = document.querySelector("#forecast-location");
+        forecastLocation.textContent = `Forecast in: ${city}, ${state}`;
     });
     userLocation((coordinates) => {
         setLocation(coordinates);
