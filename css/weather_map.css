@@ -60,6 +60,11 @@ nav {
     width: 100%;
     display: inline-block;
     position: relative;
+    z-index: 99;
+    & form {
+        height: 100%;
+        width: 100%;
+    }
 }
 
 .searchbar {
@@ -81,7 +86,11 @@ nav {
     border: none;
 }
 
-#suggestions {
+div.row {
+    z-index: 0;
+}
+
+#suggestions-list {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -89,13 +98,13 @@ nav {
     overflow-y: scroll;
 }
 
-#suggestions li {
+#suggestions-list li {
     background-color: rgb(59, 59, 59);
     padding: 5px;
     cursor: pointer;
 }
 
-#suggestions li:hover {
+#suggestions-list li:hover {
     background-color: #8d8d8d;
 }
 
@@ -108,7 +117,7 @@ nav {
 }
 
 .weather-card {
-    width: 250px;
+    width: 300px;
     border-radius: 10px;
     padding: 10px;
     background-color: #527fd3;

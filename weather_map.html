@@ -35,11 +35,13 @@
                     </div>
                     <div class="col-6 center-navbar">
                         <div class="search-container">
-                            <input
-                                type="search"
-                                placeholder="Search city.."
-                                class="searchbar"
-                            />
+                            <form id="search-form">
+                                <input
+                                    type="search"
+                                    placeholder="Search city.."
+                                    class="searchbar"
+                                />
+                            </form>
                             <img
                                 src="./weatherbox_assets/img/search.svg"
                                 class="search-icon"
@@ -54,42 +56,9 @@
             </header>
             <div class="row">
                 <div class="col d-flex flex-column gap-4">
-                    <div class="weather-section d-flex">
-                        <div
-                            class="weather-card-container d-flex flex-column gap-4"
-                        >
-                            <h2 id="forecast-location"></h2>
-                            <div class="card weather-card">
-                                <div
-                                    class="card-head d-flex justify-content-between"
-                                >
-                                    <p>Monday Nov, 2023</p>
-                                    <p>11:40PM</p>
-                                </div>
-                                <div class="card-body">
-                                    <div class="d-flex flex-row">
-                                        <h1 class="temp">15°</h1>
-                                        <img
-                                            src="./weatherbox_assets/img/cloud.png"
-                                            height="125"
-                                            width="125"
-                                        />
-                                    </div>
-                                    <h2>Cloudy</h2>
-                                </div>
-                                <div class="card-footer">
-                                    <ul>
-                                        <li>
-                                            <span>Humidity: 71</span>
-                                        </li>
-                                        <li>
-                                            <span>Wind: 4.84</span>
-                                        </li>
-                                        <li><span>Pressure: 1015</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="weather-section d-flex flex-column gap-4 mt-4">
+                        <h2 id="forecast-location"></h2>
+                        <div class="weather-card-container d-flex gap-4"></div>
                     </div>
                     <div class="map-wrapper d-flex flex-column mb-4">
                         <h2>Map</h2>
