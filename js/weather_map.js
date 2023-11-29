@@ -70,12 +70,58 @@ const handleSearchBar = (callback) => {
     });
 };
 
+const userLocation = (callback) => {
+    let userCoord = [];
+    // Check if geolocation is supported by the browser
+    if ("geolocation" in navigator) {
+        // Prompt user for permission to access their location
+        navigator.geolocation.getCurrentPosition(
+            // Success callback function
+            (position) => {
+                // Get the user's latitude and longitude coordinates
+                const lat = position.coords.latitude;
+                const lng = position.coords.longitude;
+                userCoord.push(lng, lat);
+                callback(userCoord);
+                console.log(userCoord);
+            },
+            // Error callback function
+            (error) => {
+                // Handle errors, e.g. user denied location sharing permissions
+                console.error("Error getting user location:", error);
+            }
+        );
+    } else {
+        // Geolocation is not supported by the browser
+        console.error("Geolocation is not supported by this browser.");
+    }
+};
+
+const setLocation = async (address = [-77.60706, 38.78828]) => {
+    const newAddress = await getAddress(address);
+    console.log(newAddress);
+    const city = newAddress.features.find((feature) =>
+        feature.place_type.includes("place")
+    ).text;
+    const state = newAddress.features.find((feature) =>
+        feature.place_type.includes("region")
+    ).text;
+
+    const locationText = document.querySelector("#user-location");
+    locationText.textContent = `${city}, ${state}`;
+};
+
 const updateTime = () => {
     const now = new Date();
-    const hours = now.getHours();
+    let hours = now.getHours();
     const minutes = now.getMinutes();
+    const ampm = hours >= 12 ? "PM" : "AM";
 
-    const formattedTime = `Current time: ${hours}:${minutes}`;
+    hours = hours % 12 || 12;
+
+    const formattedTime = `Current time: ${hours}:${
+        minutes < 10 ? "0" : ""
+    }${minutes} ${ampm}`;
 
     document.querySelector("#time").innerText = formattedTime;
 };
@@ -83,9 +129,6 @@ const updateTime = () => {
 (async () => {
     updateTime();
     setInterval(updateTime, 1000);
-    // const address = selectedSuggestion.full_address;
-    // const coordinates = await getCoordinates(address);
-    // console.log(coordinates);
     const map = createMap("map", [-77.60706, 38.78828]);
     handleSearchBar(async (suggestion) => {
         const coordinates = await getCoordinates(suggestion.full_address);
@@ -101,5 +144,8 @@ const updateTime = () => {
             .setLngLat(coordinates)
             .addTo(map)
             .setPopup(popup);
+    });
+    userLocation((coordinates) => {
+        setLocation(coordinates);
     });
 })();

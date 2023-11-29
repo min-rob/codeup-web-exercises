@@ -60,7 +60,7 @@ export const getAddress = async (lng, lat) => {
         lat = lng[1];
         lng = lng[0];
     }
-    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${keys.mapbox}`;
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${keys.mapBox}`;
     const options = {
         method: "GET",
         headers: {
@@ -70,7 +70,7 @@ export const getAddress = async (lng, lat) => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        return data.features[0].place_name;
+        return data;
     } catch (err) {
         console.error(err);
         return null;

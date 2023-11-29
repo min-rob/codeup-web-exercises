@@ -113,3 +113,7 @@ ul {
         gap: 10px;
     }
 }
+
+#user-location {
+    margin: 0;
+}
