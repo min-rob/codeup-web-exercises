@@ -21,11 +21,8 @@ const favoriteRestaurants = [
     },
 ];
 
-favoriteRestaurants.forEach((restaurant) => {
-    console.log(restaurant.address);
-});
-
 const restaurantAddress = (btnId) => {
+    btnId = parseInt(btnId);
     const restaurant = favoriteRestaurants.find(
         (restaurant) => restaurant.id === btnId
     );
@@ -33,6 +30,7 @@ const restaurantAddress = (btnId) => {
 };
 
 const restaurantName = (btnId) => {
+    btnId = parseInt(btnId);
     const restaurant = favoriteRestaurants.find(
         (restaurant) => restaurant.id === btnId
     );
@@ -40,44 +38,101 @@ const restaurantName = (btnId) => {
 };
 
 const restaurantInfo = (btnId) => {
+    btnId = parseInt(btnId);
     const restaurant = favoriteRestaurants.find(
         (restaurant) => restaurant.id === btnId
     );
     return restaurant.info;
 };
 
-const buttons = document.querySelectorAll(".btn");
-console.log(buttons);
+// const getCoordinates = async (restaurants) => {
+//     let coordinates = [];
+//     restaurants.forEach(async (restaurant) => {
+//         let restaurantAddy = encodeURIComponent(restaurant.address);
+//         const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${restaurantAddy}.json?access_token=${keys.mapBox}`;
+//         const options = {
+//             method: "GET",
+//             headers: {
+//                 "Content-Type": "application/json",
+//             },
+//         };
+//         const response = await fetch(url, options);
+//         const data = await response.json();
+//         coordinates.push(data.features[0].center);
+//     });
+//     return coordinates;
+// };
 
-const getCoordinates = async (restaurants) => {
+const getCoordinates = async (address) => {
     let coordinates = [];
-    restaurants.forEach(async (restaurant) => {
-        let restaurantAddy = encodeURIComponent(restaurant.address);
-        const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${restaurantAddy}.json?access_token=${keys.mapboxDefault}`;
-        const options = {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        };
-        const response = await fetch(url, options);
-        const data = await response.json();
-        coordinates.push(data.features[0].center);
-    });
+    let restaurantAddy = encodeURIComponent(address);
+    const url = `https://api.mapbox.com/geocoding/v5/mapbox.places/${restaurantAddy}.json?access_token=${keys.mapBox}`;
+    const options = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+        },
+    };
+    const response = await fetch(url, options);
+    const data = await response.json();
+    coordinates.push(data.features[0].center);
     return coordinates;
 };
 
+const getAddressOnClick = async (callback) => {
+    const buttons = document.querySelectorAll(".btn");
+    for (let button of buttons) {
+        button.addEventListener("click", async (e) => {
+            const id = e.target.id;
+            const address = restaurantAddress(id);
+            try {
+                const coordinates = await getCoordinates(address);
+                console.log(coordinates);
+                callback(coordinates);
+            } catch (error) {
+                console.log("error", error);
+            }
+        });
+    }
+};
+const getRestaurantName = (callback) => {
+    const buttons = document.querySelectorAll(".btn");
+    for (let button of buttons) {
+        button.addEventListener("click", (e) => {
+            const id = e.target.id;
+            const name = restaurantName(id);
+            callback(name);
+        });
+    }
+};
+
 (async () => {
-    const coordinates = await getCoordinates(favoriteRestaurants);
-    console.log(coordinates);
-    mapboxgl.accessToken = keys.mapboxDefault;
+    mapboxgl.accessToken = keys.mapBox;
     const map = new mapboxgl.Map({
         container: "map", // container ID
         // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
+        center: [-77.60706, 38.78828], // starting position [lng, lat]
         style: "mapbox://styles/mapbox/navigation-night-v1", // style URL
-        center: [0, 0], // starting position [lng, lat]
         zoom: 15, // starting zoom
         keyboard: false,
     });
-    console.log(restaurantAddress(1));
+    const name = await new Promise((resolve) => {
+        getRestaurantName((restaurantName) => {
+            resolve(restaurantName);
+        });
+    });
+    getAddressOnClick((coordinates) => {
+        map.flyTo({
+            center: coordinates[0],
+            zoom: 15,
+            speed: 2,
+        });
+        const popup = new mapboxgl.Popup().setHTML(`<p>${name}</p>`);
+        const marker = new mapboxgl.Marker({
+            draggable: true,
+        })
+            .setLngLat(coordinates[0])
+            .addTo(map)
+            .setPopup(popup);
+    });
 })();

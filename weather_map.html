@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Weather Map</title>
+        <link rel="stylesheet" href="./css/weather_map.css" />
+    </head>
+    <body>
+        <div class="page-wrapper">
+            <header>
+                <nav class="row">
+                    <div class="col-3 lt-navbar">
+                        <div
+                            class="d-flex align-items-center justify-content-between"
+                        >
+                            <div
+                                class="d-flex location-wrapper align-items-center gap-3"
+                            >
+                                <img
+                                    src="./weatherbox_assets/img/location.svg"
+                                    height="15"
+                                    width="15"
+                                />
+                                <h2>location</h2>
+                            </div>
+                            <div class="d-flex align-items-center time-wrapper">
+                                <p id="time" class="m-0"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 center-navbar">
+                        <div class="search-container">
+                            <input
+                                type="search"
+                                placeholder="Search city.."
+                                class="searchbar"
+                            />
+                            <img
+                                src="./weatherbox_assets/img/search.svg"
+                                class="search-icon"
+                            />
+                        </div>
+                    </div>
+                    <div class="col-3 rt-navbar d-flex align-items-center">
+                        <div class="col-6 form-check form-switch">
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                id="flexSwitchCheckChecked"
+                                checked
+                            />
+                            <label
+                                class="form-check-label"
+                                for="flexSwitchCheckChecked"
+                                >Night mode</label
+                            >
+                        </div>
+                    </div>
+                </nav>
+            </header>
+            <div class="row">
+                <div class="col d-flex flex-column gap-4">
+                    <div class="weather-section d-flex">
+                        <div
+                            class="weather-card-container d-flex flex-column gap-4"
+                        >
+                            <h2>Weather</h2>
+                            <div class="card weather-card">
+                                <div
+                                    class="card-head d-flex justify-content-between"
+                                >
+                                    <p>Monday Nov, 2023</p>
+                                    <p>11:40PM</p>
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex flex-row">
+                                        <h1 class="temp">15°</h1>
+                                        <img
+                                            src="./weatherbox_assets/img/cloud.png"
+                                            height="125"
+                                            width="125"
+                                        />
+                                    </div>
+                                    <h2>Cloudy</h2>
+                                </div>
+                                <div class="card-footer">
+                                    <ul>
+                                        <li>
+                                            <span>Humidity: 71</span>
+                                        </li>
+                                        <li>
+                                            <span>Wind: 4.84</span>
+                                        </li>
+                                        <li><span>Pressure: 1015</span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-wrapper d-flex flex-column mb-4">
+                        <h2>Map</h2>
+                        <div id="map" class="map container-fluid p-0"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+        <script type="module" src="./js/weather_map.js"></script>
+    </body>
+</html>
