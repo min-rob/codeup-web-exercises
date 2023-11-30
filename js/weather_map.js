@@ -24,7 +24,6 @@ const fetchSuggestions = async (searchText, token) => {
     }
 };
 
-// Function to handle the suggestion click and return the suggestion object
 const saveSuggestionClick = (suggestion) => {
     selectedSuggestion = suggestion;
     return selectedSuggestion;
@@ -203,7 +202,6 @@ const createWeatherCard = (forecast) => {
             imgUrl = "./weatherbox_assets/img/windy.png";
             break;
         default:
-            // Handle other cases
             break;
     }
 
