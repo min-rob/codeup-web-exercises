@@ -170,11 +170,13 @@ const dateFormatter = (dateTime) => {
 };
 
 const createWeatherCard = (forecast) => {
-    let { weather, temp, humidity, wind_speed, pressure, dateTime } = forecast;
+    let { weather, temp, humidity, wind_speed, pressure, dateTime, maxTemp } =
+        forecast;
     let imgUrl = "";
 
     weather = forecast.weather[0].main;
     temp = Math.trunc(forecast.temp.day);
+    maxTemp = Math.trunc(forecast.temp.max);
     humidity = forecast.humidity;
     wind_speed = forecast.wind_speed;
     pressure = forecast.pressure;
@@ -234,6 +236,7 @@ const createWeatherCard = (forecast) => {
                     <span>Wind speed: ${wind_speed} Mph</span>
                 </li>
                 <li><span>Pressure: ${pressure}</span></li>
+                <li><span>Hi: ${maxTemp}°</span></li>
             </ul>
         </div>`;
     return card;
